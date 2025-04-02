@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import Home from './Home'
-import Contact from './Contact'
+import Page from './pages'
 import Singlepage from './Singlepage'
-import Categories from '../Categories'
+import Categories from './Categories'
 import { Navbar } from './Navbar'
+import Error from './Error'
 
 function App() {
 
@@ -12,21 +13,21 @@ function App() {
   <>
   <BrowserRouter>
 <Routes>
-<Route path='/' element={<Navbar/>}
-children={[
+<Route path='/' element={<Home/>}/>
 <Route path='/home' element={<Home/>}/>,
- <Route path='/home/categories/:ky' element={<Categories/>}/>,
+<Route path='/home/categories/:ky' element={<Categories/>}/>,
 <Route path='/home/:key' element={<Singlepage/>}/>,
-<Route path='/contact' element={<Contact/>}/>,
-]}
+<Route path='/page' element={<Page/>}/>,
+<Route path='*' element={<Error/>}/>
 
-
-/>
 </Routes>
 
 </BrowserRouter>
 
 </>  
+
+
+
     
   )
 }

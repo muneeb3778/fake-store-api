@@ -1,9 +1,14 @@
 
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import Category from './Category'
-
+import Home from './Home'
+import style from "./style.module.css"
+import { useReducer, useRef } from 'react'
+import Page from './pages'
 
 export function Navbar() {
+
+
 
 
 
@@ -16,13 +21,15 @@ export function Navbar() {
 
     
   
-  <Link to="/home">
-  <div>Home</div>
-  </Link>
+  <NavLink to="/home">
+  <div className={`${style.category}`}
+  onClick={(e)=>{console.log(e.target)}}
+  >Home</div>
+  </NavLink>
   
-  <Link to="/contact">
-  <div className='mr-6'>Contact</div>
-  </Link>
+  <NavLink to="/page">
+  <div className={`${style.category} mr-6`}>Page</div>
+  </NavLink>
 
 </nav>
 

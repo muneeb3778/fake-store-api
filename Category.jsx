@@ -1,12 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
+import ab from "./style.module.css"
 
 
 function Category (){
 
 let [dt,setdt]=useState([])
 let [d,setd]=useState("")
+
+
+
+
+let referenc=useRef(null)
+let childreferenc=useRef(null)
+
 
 
 
@@ -28,10 +36,13 @@ setdt(res.data)
 return (
 
 <>
-<div className="bg-gray-800 , w-[20vw] h-screen text-white text-[18px] flex flex-col  pt-12 fixed">
+<div 
+ref={referenc}
+className="bg-gray-800 , w-[20vw] h-screen text-white text-[18px] flex flex-col  pt-12 fixed">
 {dt.map((v,i)=>(
 <NavLink to={`/home/categories/${v}`}>
-<div className="p-2 cursor-pointer">{v}</div>
+<div key={i} 
+className={`p-2 cursor-pointer ${ab.category} `}>{v}</div>
 </NavLink>    
 ))}
 

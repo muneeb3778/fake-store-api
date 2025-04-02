@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Navbar } from './Navbar'
 
 
 function Singlepage (){
@@ -27,10 +28,14 @@ console.log(data);
 return (
 
 <>
+
+<Navbar/>
+
+
 {object.category!==null && object.category!==undefined && object.image!==null && object.image!==undefined && object.description!==null && object.description!==undefined && object.price!==null && object.price!==undefined?(
 
 <div key={object.id}
-  class="min-h-[300px] h-[380px] max-w-[200px] dark:bg-gray-900 dark:text-gray-100 border dark:border-0 relative rounded-md hover:shadow-xl cursor-pointer duration-200 overflow-hidden">
+  class="min-h-[300px] h-[380px] max-w-[200px] dark:bg-gray-900 dark:text-gray-100 border dark:border-0 relative rounded-md hover:shadow-xl cursor-pointer duration-200 overflow-hidden left-[30vw] top-[80px]">
   <span class="bg-blue-600 text-white px-2 py-1 absolute top-0 right-0 text-xs  md:tex t-sm rounded-bl-md">{object.rating.rate}</span>
   <div class="overflow-hidden p-2 rounded-md">
     <img alt="Iphone 14+" loading="lazy" class="h-[150px] w-full" src={object.image}/>
